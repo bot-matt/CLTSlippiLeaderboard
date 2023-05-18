@@ -1,10 +1,10 @@
 import { getPlayerDataThrottled } from './slippi'
 import { GoogleSpreadsheet } from 'google-spreadsheet';
-import creds from '../secrets/creds.json';
 import * as syncFs from 'fs';
 import * as path from 'path';
 import util from 'util';
 import * as settings from '../settings'
+let creds = process.env.CREDS
 
 import { exec } from 'child_process';
 const fs = syncFs.promises;
@@ -12,10 +12,10 @@ const execPromise = util.promisify(exec);
 
 const getPlayerConnectCodes = async (): Promise<string[]> => {
   const doc = new GoogleSpreadsheet(settings.spreadsheetID);
-  await doc.useServiceAccountAuth(creds);
+  await doc.useServiceAccountAuth(JSON.parse(creds));
   await doc.loadInfo(); // loads document properties and worksheets
   const sheet = doc.sheetsByIndex[0];
-  const rows = (await sheet.getRows()).slice(1); // remove header row
+  const rows = (await sheet.getRows()).slice(0); // remove header row
   return [...new Set(rows.map((r) => r._rawData[1]).filter(r => r !== ''))] as string[]
 };
 
