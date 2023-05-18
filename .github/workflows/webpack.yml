@@ -23,6 +23,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Build
+      env: # Or as an environment variable
+        CREDS: ${{ secrets.CREDS }}
+        Spreadsheet: ${{ secrets.SPREADSHEET }}
+        Title: ${{ secrets.TITLE }}
       run: |
         npm install --global yarn
         yarn
