@@ -26,4 +26,8 @@ jobs:
       run: |
         npm install --global yarn
         yarn
+        mkdir cron/data
+        echo '[]' >> cron/data/players-new.json
+        mkdir cron/logs
+        touch cron/logs/log.txt
         npm run build
