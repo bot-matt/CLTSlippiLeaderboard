@@ -25,7 +25,7 @@ jobs:
 
     - name: Build
       env: # Or as an environment variable
-        CREDS: ${{ secrets.CREDS }}
+        CREDS: '${{ secrets.CREDS }}'
         Spreadsheet: ${{ secrets.SPREADSHEET }}
         Title: ${{ secrets.TITLE }}
       run: |
