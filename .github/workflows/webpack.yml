@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    environment: Build Env
     runs-on: ubuntu-latest
 
     strategy:
