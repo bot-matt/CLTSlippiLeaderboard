@@ -11,7 +11,7 @@ const execPromise = util.promisify(exec);
 
 const getPlayerConnectCodes = async (): Promise<string[]> => {
   const doc = new GoogleSpreadsheet(settings.spreadsheetID);
-  await doc.useServiceAccountAuth(process.env.CREDS);
+  await doc.useServiceAccountAuth(JSON.parse(atob(process.env.CREDS)));
   await doc.loadInfo(); // loads document properties and worksheets
   const sheet = doc.sheetsByIndex[0];
   const rows = (await sheet.getRows()).slice(0); // remove header row
