@@ -7,7 +7,6 @@ storybook-static
 docs
 .eslintcache
 .stylelintcache
-dist
 .DS_Store
 *.swp
 secrets/*
