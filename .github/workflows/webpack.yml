@@ -30,4 +30,5 @@ jobs:
         echo '[]' >> cron/data/players-new.json
         mkdir cron/logs
         touch cron/logs/log.txt
+        ./cron/run.sh
         npm run build
