@@ -47,4 +47,3 @@ jobs:
         # Stage the file, commit and push
         git add docs
         git commit -m "updated docs"
-        git push origin gh-pages
