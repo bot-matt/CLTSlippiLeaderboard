@@ -8,7 +8,7 @@ const settings = require('./settings');
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 const entry = path.join(__dirname, './src/index.tsx');
 const port = 8262;
-const output = path.join(__dirname, './dist');
+const output = path.join(__dirname, './docs');
 const publicPath = mode === 'production' ? settings.repoPath || '/' : '/';
 
 module.exports = {
