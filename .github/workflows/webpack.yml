@@ -1,10 +1,8 @@
 name: NodeJS with Webpack
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+  schedule:
+  - cron: "0 * * * *"
 
 jobs:
   build:
@@ -47,6 +45,6 @@ jobs:
     - name: commit
       run: |
         # Stage the file, commit and push
-        git add dist
-        git commit -m "updated dist"
-        git push origin master
+        git add docs
+        git commit -m "updated docs"
+        git push origin gh-pages
