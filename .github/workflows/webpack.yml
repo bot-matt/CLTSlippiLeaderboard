@@ -37,4 +37,16 @@ jobs:
         touch cron/logs/log.txt
         ./cron/run.sh
         npm run build
-        ls
+        
+    - name: Setup Git Config
+      run: |
+        # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+    
+    - name: commit
+      run: |
+        # Stage the file, commit and push
+        git add dist
+        git commit -m "updated dist"
+        git push origin master
